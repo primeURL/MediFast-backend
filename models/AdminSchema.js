@@ -2,10 +2,9 @@ const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 // const passwordComplexity = require("joi-password-complexity");
 
-const doctorSchema = new mongoose.Schema({
+const adminSchema = new mongoose.Schema({
 	firstName: { type: String, required: true },
 	lastName: { type: String, required: true },
-	userName: { type: String, required: true },
 	email: { type: String, required: true },
 	password: { type: String, required: true },
 	confirmPassword: { type: String, required: true },
@@ -19,6 +18,6 @@ patientSchema.methods.generateAuthToken = function () {
 	return token;
 };
 
-const DoctorSchema = mongoose.model("doctorSchema", doctorSchema);
+const AdminSchema = mongoose.model("adminSchema", adminSchema);
 
-module.exports =  DoctorSchema;
+module.exports =  AdminSchema;
