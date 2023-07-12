@@ -14,7 +14,7 @@ const patientInfo = require('./routes/patientInfo')
 
 app.use("/api/patient", patientAuth);
 app.use("/api/admin", adminRoute);
-app.use("api/patientInfo", patientInfo);
+app.use("/api/patientInfo", patientInfo);
 
 app.get('/',(req,res)=>{
     res.send('Inside index.js')
