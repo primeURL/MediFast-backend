@@ -8,6 +8,7 @@ router.get("/doctorConsultant", async (req, res) => {
         const doctors = await AddDoctorSchema.find({})
         res.status(200).send(doctors)
     } catch (error) {
+        console.log(error);
         res.status(500).send(error)
     }
 });
