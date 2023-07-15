@@ -10,10 +10,12 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 const patientAuth = require('./routes/patientAuth')
 const adminRoute = require('./routes/adminRoute')
+const adminAuth = require('./routes/adminAuth')
 const patientInfo = require('./routes/patientInfo')
 
 app.use("/api/patient", patientAuth);
 app.use("/api/admin", adminRoute);
+app.use("/api/admin/auth", adminAuth);
 app.use("/api/patientInfo", patientInfo);
 
 app.get('/',(req,res)=>{

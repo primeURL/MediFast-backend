@@ -11,7 +11,7 @@ const adminSchema = new mongoose.Schema({
     isAdmin : {type:Boolean,default:false}
 });
 
-patientSchema.methods.generateAuthToken = function () {
+adminSchema.methods.generateAuthToken = function () {
 	const token = jwt.sign({ _id: this._id }, process.env.JWTPRIVATEKEY, {
 		expiresIn: "7d",
 	});

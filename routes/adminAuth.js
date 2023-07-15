@@ -47,14 +47,14 @@ router.post("/login", async (req, res) => {
 	}
 });
 
-//Route to Indiviudal Patient Details
-router.get('/getPatientDetails/:userId',async(req,res)=>{
-    try {
-        const response = await AdminSchema.findOne({_id:req.params.userId})
-		return res.status(200).send(response)
-    } catch (error) {
-        return res.status(500).send(error)
-    }
-})
+// //Route to Indiviudal Patient Details
+// router.get('/getPatientDetails/:userId',async(req,res)=>{
+//     try {
+//         const response = await AdminSchema.findOne({_id:req.params.userId})
+// 		return res.status(200).send(response)
+//     } catch (error) {
+//         return res.status(500).send(error)
+//     }
+// })
 
 module.exports = router;
