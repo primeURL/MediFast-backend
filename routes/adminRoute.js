@@ -12,6 +12,17 @@ router.post("/addDoctor", async (req, res) => {
         res.status(500).send(error)
     }
 });
+router.delete("/delete/:id", async(req,res) => {
+    try{
+        const id = req.params.id
+        await AddDoctorSchema.deleteOne({_id:id})
+        res.status(201).send({message: "doctor deleted successfully"})
+
+    } catch(err){
+        console.log(err);
+    }
+})
+
 
 
 
