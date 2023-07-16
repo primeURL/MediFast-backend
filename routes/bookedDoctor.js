@@ -13,6 +13,27 @@ router.post("/", async (req, res) => {
     }
 });
 
+router.get("/getAppointment/:id", async (req, res) => {
+	try {
+        const response = await BookedDoctorSchema.find({doctorId:req.params.id})
+        res.status(200).send(response)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+});
+
+router.get("/updateStatus/:id", async (req, res) => {
+    console.log(req.params.id);
+	try {
+        const response = await BookedDoctorSchema.findOne({_id:req.params.id})
+        console.log('rep',response);
+        response.appointmentStatus = "Confirmed"
+        response.save()
+        res.status(200).send('Appointment Booked')
+    } catch (error) {
+        res.status(500).send(error)
+    }
+});
 
 
 
