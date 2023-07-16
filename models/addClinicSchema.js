@@ -7,6 +7,6 @@ const addClinicSchema = new mongoose.Schema({
     clinicPhone:{ type:String, required:true }
 })
 
-const AddClinicSchema = mongoose.model("clinicLocation", clinicLocation);
+const AddClinicSchema = mongoose.model("addClinicSchema", addClinicSchema);
 
 module.exports =  AddClinicSchema;
