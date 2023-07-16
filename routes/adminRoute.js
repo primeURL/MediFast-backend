@@ -35,6 +35,16 @@ router.post('/addClinic', async(req,res) => {
     }
 })
 
+router.delete('/remove-clinic/:id', async(req,res) => {
+    try{
+        const id = req.params.id
+        await AddClinicSchema.deleteOne({_id:id})
+        res.status(201).send({message:"Clinic deleted from database"})
+    } catch(err){
+        console.log("error while deleting the clinic", err)
+    }
+})
+
 
 
 module.exports = router;
