@@ -45,6 +45,38 @@ router.delete('/remove-clinic/:id', async(req,res) => {
     }
 })
 
+router.get('/edit-clinic/:id', async(req,res) => {
+    try{
+        const id = req.params.id
+        const clinic = await AddClinicSchema.findById(id)
+        console.log(clinic)
+        res.status(200).send(clinic)
+    } catch(err){
+        console.log('error while getting clinic by ID', err)
+    }
+})
+
+router.put('/edit-clinic/:id', async(req,res) => {
+    try{
+        const body = req.body
+        await AddClinicSchema.updateOne({_id:req.params.id}, body)
+        res.status(201).send({message:"Clinic updated sucessfully"})
+
+    } catch(err){
+        console.log("error while updating the clinic", err)
+    }
+})
+
+router.get('/edit-doctor/:id', async(req,res) => {
+    try{
+        const id = req.params.id
+        const doctor = await AddDoctorSchema.findById(id)
+        res.status(201).send(doctor)
+
+    } catch(err){
+        log("Error while getting doc by Id", err)
+    }
+})
 
 
 module.exports = router;
