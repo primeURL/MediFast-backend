@@ -77,6 +77,16 @@ router.get('/edit-doctor/:id', async(req,res) => {
         log("Error while getting doc by Id", err)
     }
 })
+router.put('/edit-doctor/:id', async(req,res) => {
+    try{
+        const body = req.body
+        await AddDoctorSchema.updateOne({_id:req.params.id}, body)
+        res.status(201).send({message:"Doctor updated"})
+
+    } catch(err){
+        log("Error while updating the doc", err)
+    }
+})
 
 
 module.exports = router;
