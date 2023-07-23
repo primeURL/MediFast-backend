@@ -44,6 +44,13 @@ router.get("/updateStatus/:id", async (req, res) => {
         console.log('rep',response);
         response.appointmentStatus = "Confirmed"
         response.save()
+        const text = ` <div style="margin: auto;border-radius:10px;font-family: sans-serif; width: 500px;box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;">
+        <div style="text-align: center; padding: 10px;">
+            <h1 style="color: rgb(218, 94, 94);">Your Appointment has been accepted by Doctor</h1>   
+        </div>
+        <p style="text-align: center; padding:10px; font-weight: 300;color: coral;">Check Profile Page for your Status</p>
+                         </div>`
+        await sendEmail(response.patientEmail,'Appointment Booked','Good Morning',text)
         res.status(200).send('Appointment Booked')
     } catch (error) {
         res.status(500).send(error)

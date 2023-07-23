@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const bookedDoctorSchema = new mongoose.Schema({
 	patientName: { type: String, required: true },
-	patientPhone: { type: String, required: true },
+	patientEmail: { type: String, required: true },
 	patientIssue: { type: String, required: true },
 	appointmentDay: [{}],
 	patientTime: { type: String, required: true },
